@@ -41,6 +41,20 @@ def logout():
     logout_user()
     return jsonify({"message": "Logout realizado com sucesso!"})
 
+@app.route("/users", methods=["POST"])
+def create_user():
+    data = request.json
+    username = data.get("username")
+    password = data.get("password")
+
+    if username and password:
+        new_user = User(username=username, password=password)
+        db.session.add(new_user)
+        db.session.commit()
+        return jsonify({"message": "Usuário criado com sucesso!"}), 201
+
+    return jsonify({"message": "Dados inválidos"}), 400
+
 @app.route("/", methods=["GET"])
 def home():
     return "Welcome to the Flask App!"
