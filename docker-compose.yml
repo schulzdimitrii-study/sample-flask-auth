@@ -10,4 +10,4 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - /Users/schulzdimitrii/Desktop/Documents/GitHub-Projects/sample-flask-auth/mysql:/var/lib/mysql
+      - /Users/schulzdimitrii/Documents/GitHub-Projects/sample-flask-auth/mysql:/var/lib/mysql
